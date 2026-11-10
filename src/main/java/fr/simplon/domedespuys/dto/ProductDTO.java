@@ -10,6 +10,6 @@ public String label;
 public String description;
 public String price;
 public Long brandId;
-public String images;
+public List<ImageDTO> images;
 
 }
