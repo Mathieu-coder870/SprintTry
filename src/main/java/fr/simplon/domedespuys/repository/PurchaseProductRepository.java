@@ -1,0 +1,7 @@
+package fr.simplon.domedespuys.repository;
+import fr.simplon.domedespuys.entities.PurchaseProduct;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+public interface PurchaseProductRepository extends JpaRepository<PurchaseProduct, Long> {
+}

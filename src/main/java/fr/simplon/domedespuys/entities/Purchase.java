@@ -1,4 +1,4 @@
-package fr.simplon.domedespuys.Entities;
+package fr.simplon.domedespuys.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,35 +12,33 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-public class Product {
+
+public class Purchase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 20, unique = true, nullable = false)
-    private String label;
-
-    @Column(length = 20, unique = true, nullable = true)
-    private String description;
-
-    @Column(length = 10, unique = true, nullable = false)
-    private int price;
-
-    @Column(length = 20, unique = true, nullable = false)
-    private String slug;
+    private String number;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    @OneToMany(mappedBy = "product")
-    List<PurchaseProduct> purchaseProducts;
+    @Column(nullable = false)
+    private String status = EnumPurchaseStatus.PENDING.getValue();
 
     @ManyToOne(optional = false)
     @JoinColumn(nullable = false)
-    private Brand brand;
+    private  User user;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(nullable = false)
+    private Address address;
 
-    @OneToMany(mappedBy = "product")
-    List<Image> images;
+    @OneToMany(mappedBy = "purchase")
+    List<PurchaseProduct>purchaseProducts;
 }
+
+
+

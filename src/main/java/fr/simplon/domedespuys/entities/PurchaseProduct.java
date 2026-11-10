@@ -1,4 +1,4 @@
-package fr.simplon.domedespuys.Entities;
+package fr.simplon.domedespuys.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,10 +15,10 @@ public class PurchaseProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 20, unique = true, nullable = false)
+    @Column(length = 20, nullable = false)
     private Integer quantity;
 
-    @Column(length = 20, unique = true, nullable = false)
+    @Column(length = 20, nullable = false)
     private Integer price;
 
     @ManyToOne(optional = false)

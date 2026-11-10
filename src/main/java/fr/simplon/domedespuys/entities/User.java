@@ -1,4 +1,4 @@
-package fr.simplon.domedespuys.Entities;
+package fr.simplon.domedespuys.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,10 +20,10 @@ public class User {
 
 
 
-    @Column(length = 20, unique = true, nullable = false)
+    @Column(length = 48, unique = true, nullable = false)
     private String email;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 255, nullable = false)
     private String password;
 
     @Column(length = 45, nullable = false)
