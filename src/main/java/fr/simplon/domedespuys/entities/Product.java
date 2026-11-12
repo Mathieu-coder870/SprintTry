@@ -1,5 +1,7 @@
 package fr.simplon.domedespuys.entities;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import fr.simplon.domedespuys.views.ProductView;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,4 +45,19 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     List<Image> images;
+
+    public void addImage(Image image) {
+        images.add(image);
+        image.setProduct(this);
+    }
+
+    @JsonView(ProductView.MainImage.class)
+    public Image getMainImage() {
+        for (Image image : images) {
+            if (image.isDefault()) {
+                return image;
+            }
+        }
+        return null;
+    }
 }

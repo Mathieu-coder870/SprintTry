@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -37,7 +38,7 @@ public class Purchase {
     private Address address;
 
     @OneToMany(mappedBy = "purchase")
-    List<PurchaseProduct>purchaseProducts;
+    List<PurchaseProduct>purchaseProducts = new ArrayList<>();
 }
 
 

@@ -13,6 +13,6 @@ public class BrandView {
             BrandListView,
             Logo,
             Products,
-            fr.simplon.domedespuys.views.ProductView.ProductListView {}
+           ProductView.ProductListView {}
 
 }

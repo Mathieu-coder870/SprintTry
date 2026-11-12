@@ -8,6 +8,6 @@ import java.util.List;
 
 public class PurchasePostDTO {
     public Long addressId;
-    public List<PurchaseProductDTO> purchaseProductDTOS;
+    public List<PurchaseProductDTO> purchaseProducts;
 
 }

@@ -8,8 +8,8 @@ import java.util.List;
 public class ProductDTO {
 public String label;
 public String description;
-public String price;
-public Long brandId;
+public int price;
+public String brandId;
 public List<ImageDTO> images;
 
 }

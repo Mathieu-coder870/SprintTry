@@ -1,11 +1,9 @@
-package fr.simplon.domedespuys.controller;
+package fr.simplon.domedespuys.controllers;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import fr.simplon.domedespuys.entities.Brand;
 import fr.simplon.domedespuys.entities.Product;
-import fr.simplon.domedespuys.repository.BrandRepository;
 import fr.simplon.domedespuys.repository.ProductRepository;
-import fr.simplon.domedespuys.views.BrandView;
+import fr.simplon.domedespuys.service.interfaces.IProductService;
 import fr.simplon.domedespuys.views.ProductView;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,26 +18,24 @@ import java.util.Optional;
 @AllArgsConstructor
 @RequestMapping("/api/product")
 public class ProductRestController {
-
-    private final ProductRepository productRepository;
+    private IProductService productService;
 
     @GetMapping
     @JsonView(ProductView.ProductListView.class)
     public List<Product> getProducts() {
-        return productRepository.findAll();
+        return productService.findAll();
     }
 
     @GetMapping("/slug/{slug}")
     @JsonView(ProductView.ProductDetailView.class)
-    public Optional<Product> getBrandBySlug(@PathVariable String slug) {
-        return productRepository.findBySlug(slug);
+    public List<Product> getProductsBySlug(@PathVariable String slug) {
+        return productService.findProductBySlug(slug);
     }
 
     @GetMapping("/{id}")
     @JsonView(ProductView.ProductDetailView.class)
-    public Optional<Product> getBrandById(@PathVariable String id) {
-        return productRepository.findById(Long.valueOf(id));
+    public Optional<Product> getProduct(@PathVariable String id) {
+        return productService.findById(Long.valueOf(id));
     }
-
 }
 

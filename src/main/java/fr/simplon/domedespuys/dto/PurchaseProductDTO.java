@@ -1,8 +1,8 @@
 package fr.simplon.domedespuys.dto;
 
 public class PurchaseProductDTO {
-    public Integer qty;
-    public Integer price;
-    public Long idProduct;
+    public int qty;
+    public Long price;
+    public String ProductId;
 
 }
